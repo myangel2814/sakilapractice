@@ -104,7 +104,6 @@ def elbowMethod(df, columnsForElbow):
 
 columns = ["Length", "InventoryID", "Replacement_Cost", "Rating"]
 elbowMethod(df2, columns)
-
 # Chạy KMeans Clustering
 def runKMeans(X, cluster):
     model = KMeans(n_clusters=cluster, init='k-means++', max_iter=500, random_state=42)
@@ -115,7 +114,7 @@ def runKMeans(X, cluster):
     return y_kmeans, centroids, labels
 
 X = df2.loc[:, columns].values
-cluster = 4
+cluster = 3
 y_kmeans, centroids, labels = runKMeans(X, cluster)
 
 df2["cluster"] = labels
@@ -134,4 +133,5 @@ visualize3DKmeans(df2, columns, hover_data, cluster)
 cluster0 = df2[df2['cluster'] == 0]
 cluster1 = df2[df2['cluster'] == 1]
 cluster2 = df2[df2['cluster'] == 2]
-cluster3 = df2[df2['cluster'] == 3]
+
+
